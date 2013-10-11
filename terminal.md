@@ -32,3 +32,21 @@ You can open a new tab with `cmd + t` then you can switch between tabs with `Shi
     !!
     
     
+## VI Editor
+
+    // open existing file or start create new one
+    vi file-name
+    
+    // activate insert mode
+    i
+    
+    // leave insert mode (go back to the command mode)
+    Esc
+    
+    // save and close the file
+    ZZ
+    
+### Move the cursor by search for a path
+    
+To search the document for an occourrence and move the cursor there `switch to command mode` and type `/search-path` then enter. The cursor will move to the first occourrence.
+
