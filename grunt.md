@@ -8,6 +8,12 @@ In order to use _GruntJS_ you need to set up your project folder with:
 - may be a `Git` initialization
 - may be an `npm install` to resolve dependencies
 
+
+
+
+
+
+
 ## Project Configuration
 
 A `package.json` file is meant to describe your project properties to some kind of automations tools ()like `npm` or `GruntJS`).
@@ -31,6 +37,12 @@ A `README.md` file is meant to describe your project in a human readable way. It
   }
 }
 ```
+
+
+
+
+
+
 
 ## Install Project Dependencies
 
@@ -71,6 +83,11 @@ npm install grunt-contrib-uglify --save-dev
 - add `"grunt-contrib-uglify" : "~0.2.4"` ad package dependency
 
 
+
+
+
+
+
 ## Run GruntJS
 
 Now you have `GruntJS` installed as a dependency into your `npm_modules/grunt` folder.
@@ -97,4 +114,94 @@ grunt
 ```
 
 > `GruntJS` will look at your project's `Gruntfile.js` and execute it!
+
+
+
+
+
+
+
+
+## Example Files Structure
+
+In following examples and annotations we'll use the following project structure folder. 
+
+> Any further reference to this folder will be referred as "**working directory**" 
+
+```
+// the "working-directory"
+  - package.json
+  - Gruntfile.js
+  - src
+    - index.html
+    - js
+      - a.js
+      - b.js
+  - dist
+```
+
+
+
+
+
+
+## grunt-contrib-copy
+
+This plugin allow you to copy files from a _source_ to a _target_.
+
+> You often use this plugin to move files from `src/` to `dist/` before apply some kind of manipulation or to move files which are not going to be processed.
+
+```
+npm install grunt-contrib-copy --save-dev
+```
+
+#### copy a single file from "/src" to "/dist"
+
+```
+copy: {
+  dist: {
+    files: [{
+      src: ['src/index.html'],
+      dest: 'dist/index.html'
+    }]
+  }
+}
+```
+
+#### copy "/src/" into "/dist/src/"
+
+> including the "src" folder
+
+```
+copy: {
+  dist: {
+    files: [{
+      src: ['src/'],
+      dest: 'dist/'
+    }]
+  }
+}
+```
+
+#### copy "/src/{all}" into "/dist/{all}"  
+
+> skipping the "src" level
+
+```
+copy: {
+  dist: {
+    files: [{
+      expand: true,
+      cwd: 'src/',
+      src: ['**'],
+      dest: 'dist/'
+    }]
+  }
+}
+```
+
+
+
+    
+
 
