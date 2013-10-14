@@ -77,6 +77,12 @@ If you want to remove a file from the next commit:
 
     git commit -m "notes fot this commit" 
     
+If you just did a commit but find yourself to have forgot something you can **amend your last commit** by adding new changes to it:
+
+    git add -A
+    git commit --amend
+    
+> _Git_ ask you to edit your last commit notes (VI editor) if needed.
 
 
 ## Push to the Remote Origin
