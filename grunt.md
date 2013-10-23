@@ -141,7 +141,23 @@ In following examples and annotations we'll use the following project structure 
 ```
 
 
+## Grunt File Matching Syntax
 
+Many GruntJS plugins allow to define _file targets_ by a simple yet powerful matching syntax.
+
+```
+>> refer to exact file (or folder)
+/folder/file.ext
+
+>> the whole contents into "/folder"
+/folder/*
+
+>> all ".html" files into "/folder"
+/folder/*.html
+
+>> all files and folders starting by "ind" into "/folder"
+/folder/ind*
+```
 
 
 
@@ -196,6 +212,22 @@ copy: {
       src: ['**'],
       dest: 'dist/'
     }]
+  }
+}
+```
+
+
+## grunt-copy-clean
+
+This plugin help in deleting files.
+
+```
+clean: {
+  dist: {
+    src: [
+      'folder/',  // remove "folder" and all its contents
+      '*.html',   // remove all ".html" files
+    ]
   }
 }
 ```

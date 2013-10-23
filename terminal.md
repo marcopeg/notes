@@ -46,7 +46,28 @@ You can open a new tab with `cmd + t` then you can switch between tabs with `Shi
     // save and close the file
     ZZ
     
+    // go end of file
+    G
+    
+    // go benginning of file
+    gg
+    
+[VI Commands](http://osr600doc.sco.com/en/FD_create/vi_summary.html)    
+
+    
 ### Move the cursor by search for a path
     
 To search the document for an occourrence and move the cursor there `switch to command mode` and type `/search-path` then enter. The cursor will move to the first occourrence.
+
+
+
+
+
+## File Permissions
+
+    # change recursively to all files and folders
+    chmod -R 777 /var/www
+
+
+[http://djlab.com/2009/06/cpanel-suphp-chmod-all-files-644-and-all-folders-755/]() list some commands to change 755 to folders and 644 to files
 
