@@ -65,9 +65,12 @@ To search the document for an occourrence and move the cursor there `switch to c
 
 ## File Permissions
 
-    # change recursively to all files and folders
+    // change recursively to all files and folders
     chmod -R 777 /var/www
 
 
 [http://djlab.com/2009/06/cpanel-suphp-chmod-all-files-644-and-all-folders-755/]() list some commands to change 755 to folders and 644 to files
+
+    // add executable permission to a file
+    chmod +x ./file-name
 

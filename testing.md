@@ -1,13 +1,24 @@
-UnitTesting
+Testing
 ==========================
 
 ## Tools
 
-- [http://chaijs.com/]()
-- [http://chaijs.com/api/bdd/]()
-- [http://sinonjs.org/]()
-- [http://visionmedia.github.io/mocha/]()
-- [http://phantomjs.org/]()
+Testing Frameworks & Utilities:
+
+- [MochaJS](http://visionmedia.github.io/mocha/)
+- [ChaiJS](http://chaijs.com/)
+- [SinonJS](http://sinonjs.org)
+
+Test Runners & Utilities:
+
+- [KarmaJS](http://karma-runner.github.io/)
+- [PhantomJS](http://phantomjs.org)
+
+
+
+## KarmaJS
+
+
 
 
 ## Startup
@@ -111,5 +122,3 @@ return a spy object filtered by given arguments.
 #### calledAlwaysOn(`Obj`)
 
 #### threw(`String TypeError`)
-
-#### alwaysThrew([`String TypeError`])
