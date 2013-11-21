@@ -1,7 +1,7 @@
 Bash Scripting
 ==============
 
-[http://tldp.org/HOWTO]()
+[http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html]()
 
 ## Variables
 

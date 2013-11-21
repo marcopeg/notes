@@ -23,7 +23,7 @@ NodeJS comes with a set of _pre-built modules_ you can use throught `require()` 
 
 
 
-### The ´node_modules´ Folder
+### The `node_modules` Folder
 
 The _global modules_ are provided by NodeJS but you can also create some kind of _custom global modules_ by putting them into a special folder recognised by NodeJS: the `node_modules` folder.
 
