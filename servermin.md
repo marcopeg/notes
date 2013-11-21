@@ -103,6 +103,13 @@ In order to connect to SSH server from outside you need to know **the remote use
     # close connection
     logout
     
+    
+### Authenticate via RSA
+
+In order to avoid to type server's password at every login you can add your _ssh public keys_ to the remote server account's `authorized_keys` file:
+
+	cat .ssh/id_rsa.pub | ssh hostname 'cat >> .ssh/authorized_keys'
+
 
 
 
