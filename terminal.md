@@ -1,5 +1,6 @@
 Mac Terminal
 ==========================
+Hi Marco
 
 ## Tabs Management
 
@@ -80,4 +81,6 @@ To search the document for an occourrence and move the cursor there `switch to c
 
     # create zip archive without external folder structure
     zip -r archive.zip ./folder-to-zip
+    
+  
 
