@@ -1,6 +1,8 @@
 NodeJS
 ======
 
+-- `nodemon` to restart server scripts when source changes
+
 ## require()
 
 `require()` is the way to import a module into a NodeJS script.

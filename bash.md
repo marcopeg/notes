@@ -108,3 +108,19 @@ above function `echo` only the first param!
 `$#` number of params
 
 `$@` params list
+
+## Miscellaneous
+
+### copy / paste (osx)
+
+basic commands
+
+    pbcopy
+    pbpaste
+    
+pipe to the clipboard
+
+    pwd | pbcopy
+    
+    
+    
