@@ -80,4 +80,10 @@ To search the document for an occourrence and move the cursor there `switch to c
 
     # create zip archive without external folder structure
     zip -r archive.zip ./folder-to-zip
+    
+## Alias
 
+    // ~/.bash_profile (add to the file)
+    alias mou='/Applications/Mou.app/Contents/MacOS/Mou'
+
+makes the command `mou` general available and linking to the real executable.
