@@ -42,3 +42,50 @@ You have to add the	`jenkins` user to the `docker` group and then **restart jenk
 ```
 sudo usermod -a -G docker jenkins
 ```
+
+
+## Development build
+
+```
+# Build and push the image
+VERSION_NUMBER=$(head -n 1 "./VERSION")
+VERSION_NUMBER=${VERSION_NUMBER:-"latest"}
+VERSION_TAG="registry.24hr.se/hello-world-static:dev"
+
+docker build -t "$VERSION_TAG" ./services/web
+docker push "$VERSION_TAG"
+
+# Deploy to production
+EC2KEY=/var/lib/jenkins/ssh-keys/aws.pem
+EC2DNS=ec2-34-253-137-82.eu-west-1.compute.amazonaws.com
+EC2USR=ubuntu
+EC2STR="-oStrictHostKeyChecking=no -i $EC2KEY $EC2USR""@""$EC2DNS"
+EC2CNAME="hello-world-static-dev"
+
+ssh $EC2STR "docker pull $VERSION_TAG; bash"
+ssh $EC2STR "docker stop $EC2CNAME; bash"
+ssh $EC2STR "docker run --rm -d --name $EC2CNAME -p 1081:80 $VERSION_TAG; bash"
+```
+
+## Production build
+
+```
+# Build and push the image
+#VERSION_NUMBER=$(head -n 1 "./VERSION")
+#VERSION_NUMBER=${VERSION_NUMBER:-"latest"}
+VERSION_NUMBER=$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)
+VERSION_TAG="registry.24hr.se/hello-world-static:$VERSION_NUMBER""-prod"
+
+docker build -t "$VERSION_TAG" ./services/web
+docker push "$VERSION_TAG"
+
+# Deploy to production
+EC2KEY=/var/lib/jenkins/ssh-keys/aws.pem
+EC2DNS=ec2-34-253-137-82.eu-west-1.compute.amazonaws.com
+EC2USR=ubuntu
+EC2STR="-oStrictHostKeyChecking=no -i $EC2KEY $EC2USR""@""$EC2DNS"
+EC2CNAME="hello-world-static-prod"
+
+ssh $EC2STR "docker stop $EC2CNAME; bash"
+ssh $EC2STR "docker run --rm -d --name $EC2CNAME -p 1080:80 $VERSION_TAG; bash"
+```
