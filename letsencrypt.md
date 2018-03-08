@@ -83,3 +83,28 @@ this step happens just once for the whole server
 ## Renew the certificate
 
 Follow instructions in the DigitalOcean tutorial
+
+## After Reinstall Ubintu
+
+```
+The default certbot cron hooks have been disabled!                                                                                                               │
+                    │                                                                                                                                                                  │
+                    │ The global cron hooks as provided by Ubuntu PPA packages would disrupt any custom setup for renewals possibly causing the renewals of the certificates to fail.  │
+                    │                                                                                                                                                                  │
+                    │ As of 0.12.0 version of the packages, the default cron hooks have been removed.  You have two options if you want to keep the existing functionality:            │
+                    │                                                                                                                                                                  │
+                    │   * Change the default cron job or systemd timers, and add:                                                                                                      │
+                    │       --pre-hook '/bin/run-parts /etc/letsencrypt/pre-hook.d/' \                                                                                                 │
+                    │       --post-hook '/bin/run-parts /etc/letsencrypt/post-hook.d/' \                                                                                               │
+                    │       --renew-hook '/bin/run-parts /etc/letsencrypt/renew-hook.d/'                                                                                               │
+                    │     at the end of the `certbot -q renew' command.                                                                                                                │
+                    │                                                                                                                                                                  │
+                    │                                                                                                                                                                  │
+                    │   * Add following lines to every /etc/letsencrypt/renewal/<domain>.conf                                                                                          │
+                    │     in the [renewalparams] section:                                                                                                                              │
+                    │       post_hook = /bin/run-parts /etc/letsencrypt/post-hook.d/                                                                                                   │
+                    │       renew_hook = /bin/run-parts /etc/letsencrypt/renew-hook.d/                                                                                                 │
+                    │       pre_hook = /bin/run-parts /etc/letsencrypt/pre-hook.d/                                                                                                     │
+                    │     and use the same command line options when issuing a new certificate.
+                    
+```
